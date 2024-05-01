@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
 import 'package:get/get.dart';
 import 'package:qr_code/app/controllers/auth_controller.dart';
@@ -40,8 +41,15 @@ class HomeView extends GetView<HomeController> {
               case 2:
                 title = "QR Code";
                 icon = Icons.qr_code;
-                onTap = () {
-                  print("Open camera");
+                onTap = () async {
+                  String barcode = await FlutterBarcodeScanner.scanBarcode(
+                    "#000000",
+                    "Cancel",
+                    true,
+                    ScanMode.QR,
+                  );
+
+                  Get.snackbar("Barcode", barcode);
                 };
                 break;
               case 3:
