@@ -1,23 +1,23 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 
 class AddProductController extends GetxController {
-  //TODO: Implement AddProductController
+  RxBool isLoading = false.obs;
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+  Future<Map<String, dynamic>> addProduct(Map<String, dynamic> data) async {
+    try {
+      var hasil = await firestore.collection("product").add(data);
+      await firestore.collection("product").doc(hasil.id).update({
+        "productId": hasil.id,
+      });
+
+      return {"error": false, "message": "Berhasil menambah product"};
+    } catch (e) {
+      print(e);
+      //? Error general
+      return {"error": true, "message": "Tidak dapat menambah product"};
+    }
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }
