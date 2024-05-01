@@ -49,7 +49,21 @@ class HomeView extends GetView<HomeController> {
                     ScanMode.QR,
                   );
 
-                  Get.snackbar("Barcode", barcode);
+                  //* get data from firebase by product id
+                  Map<String, dynamic> product =
+                      await controller.getProductById(barcode);
+                  if (product["error"] == false) {
+                    Get.toNamed(
+                      Routes.detailProduct,
+                      arguments: product["data"],
+                    );
+                  } else {
+                    Get.snackbar(
+                      "Error",
+                      product["message"],
+                      duration: const Duration(seconds: 2),
+                    );
+                  }
                 };
                 break;
               case 3:
