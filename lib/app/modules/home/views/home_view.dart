@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import 'package:get/get.dart';
 import 'package:qr_code/app/controllers/auth_controller.dart';
@@ -49,7 +48,7 @@ class HomeView extends GetView<HomeController> {
                 title = "Catalog";
                 icon = Icons.document_scanner_outlined;
                 onTap = () {
-                  print("Open PDF");
+                  controller.downloadCatalog();
                 };
                 break;
               default:
