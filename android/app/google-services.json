@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "435499663337",
+    "project_id": "learn-qr-code",
+    "storage_bucket": "learn-qr-code.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:435499663337:android:4fc91a06d372760cfcd578",
+        "android_client_info": {
+          "package_name": "com.lucasapps.qr_code"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtMz-N_O22qjfGOe9yuPD2iQUZnQnMz0I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
